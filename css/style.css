@@ -1,0 +1,194 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+a:focus {
+  outline-width: 0;
+}
+
+html {
+  font-size: 50%;
+  font-family: 'Roboto slab';
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 75%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 100%;
+  }
+}
+img {
+  height: 100vh;
+  display: block;
+  max-width: 100%;
+  min-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+ul a {
+  position: relative;
+  display: inline-block;
+  color: #040504;
+  text-decoration: none;
+  font-size: 5em;
+  line-height: 2em;
+  margin-left: -5%;
+}
+ul a:after {
+  position: absolute;
+  top: 76%;
+  left: -5%;
+  right: -5%;
+  margin: auto;
+  height: 2px;
+  background-color: #1a221e;
+  content: '';
+  opacity: 0;
+  -webkit-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+ul a:hover:after, ul a:focus:after {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+  background: rgba(145, 170, 157, 0.75);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+.navigation.navigation--open {
+  pointer-events: all;
+  opacity: 1;
+  z-index: 2;
+}
+
+.navigation__inner {
+  display: table;
+  height: 100%;
+  width: 105%;
+  overflow: visible;
+}
+
+nav {
+  display: table-cell;
+  vertical-align: middle;
+  overflow-y: scroll;
+  max-height: 100%;
+  padding: 2em 0;
+  -webkit-overflow-scrolling: touch;
+}
+nav > * {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.has-navigation-open {
+  max-height: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.has-navigation-open.scrollbar {
+  overflow-y: scroll;
+}
+
+.navigation-btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  margin: 20px;
+  z-index: 3;
+  background: white;
+  border-radius: 50%;
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+  -webkit-transition: -webkit-transform 150ms ease-in;
+  transition: -webkit-transform 150ms ease-in;
+  transition: transform 150ms ease-in;
+  transition: transform 150ms ease-in, -webkit-transform 150ms ease-in;
+  opacity: .75;
+}
+.navigation-btn span {
+  width: 40px;
+  height: 2px;
+  margin-bottom: 17px;
+  background: #1a221e;
+  display: block;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+.navigation-btn:hover, .navigation-btn:focus {
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+}
+.navigation-btn .last {
+  margin-bottom: 0;
+}
+.has-navigation-open .navigation-btn {
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+}
+.has-navigation-open .navigation-btn .first {
+  -webkit-transform: rotate(45deg) translate(14px, 13px) scaleX(1.4);
+          transform: rotate(45deg) translate(14px, 13px) scaleX(1.4);
+}
+.has-navigation-open .navigation-btn .middle {
+  opacity: 0;
+}
+.has-navigation-open .navigation-btn .last {
+  -webkit-transform: rotate(-45deg) translate(13px, -14px) scaleX(1.4);
+          transform: rotate(-45deg) translate(13px, -14px) scaleX(1.4);
+}
+
+@media screen and (max-width: 600px) {
+  .navigation-btn {
+    margin: 5px;
+  }
+  .navigation-btn:hover {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+}
